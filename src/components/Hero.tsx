@@ -59,7 +59,7 @@ const Hero = () => {
               onClick={scrollToContact}
               variant="outline" 
               size="lg" 
-              className="border-white text-white hover:bg-white hover:text-blue-900 px-8 py-3 text-lg"
+              className="bg-green-500 hover:bg-green-600 text-white border-green-500 px-8 py-3 text-lg"
             >
               Receber Alertas
             </Button>
