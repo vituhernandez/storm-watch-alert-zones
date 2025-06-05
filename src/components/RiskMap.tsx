@@ -111,14 +111,14 @@ const RiskMap = () => {
       map.current?.on('click', 'flood-risk-layer', (e) => {
         new mapboxgl.Popup()
           .setLngLat(e.lngLat)
-          .setHTML('<h3>Flood Risk Area</h3><p>High risk of flooding during heavy rainfall</p>')
+          .setHTML('<h3>Área de Risco de Enchente</h3><p>Alto risco de enchentes durante chuvas intensas</p>')
           .addTo(map.current!);
       });
 
       map.current?.on('click', 'landslide-risk-layer', (e) => {
         new mapboxgl.Popup()
           .setLngLat(e.lngLat)
-          .setHTML('<h3>Landslide Risk Area</h3><p>High risk of landslides on steep terrain</p>')
+          .setHTML('<h3>Área de Risco de Deslizamento</h3><p>Alto risco de deslizamentos em terreno íngreme</p>')
           .addTo(map.current!);
       });
 
@@ -151,29 +151,29 @@ const RiskMap = () => {
     <section id="map-section" className="py-20 bg-gray-50">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Interactive Risk Map</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Mapa Interativo de Riscos</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Explore real-time flood and landslide risk areas in your region. 
-            Click on colored zones to get detailed information about potential hazards.
+            Explore áreas de risco de enchentes e deslizamentos em tempo real em sua região. 
+            Clique nas zonas coloridas para obter informações detalhadas sobre perigos potenciais.
           </p>
         </div>
 
         {!isTokenSet ? (
           <div className="max-w-md mx-auto mb-8 p-6 bg-white rounded-lg shadow-lg">
-            <h3 className="text-lg font-semibold mb-4">Enter Mapbox Token</h3>
+            <h3 className="text-lg font-semibold mb-4">Inserir Token do Mapbox</h3>
             <p className="text-sm text-gray-600 mb-4">
-              To display the interactive map, please enter your Mapbox public token. 
-              You can get one at <a href="https://mapbox.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">mapbox.com</a>
+              Para exibir o mapa interativo, insira seu token público do Mapbox. 
+              Você pode obter um em <a href="https://mapbox.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">mapbox.com</a>
             </p>
             <div className="flex gap-2">
               <Input
                 type="text"
-                placeholder="Enter your Mapbox token"
+                placeholder="Insira seu token do Mapbox"
                 value={mapboxToken}
                 onChange={(e) => setMapboxToken(e.target.value)}
                 className="flex-1"
               />
-              <Button onClick={handleTokenSubmit}>Set Token</Button>
+              <Button onClick={handleTokenSubmit}>Definir Token</Button>
             </div>
           </div>
         ) : null}
@@ -191,7 +191,7 @@ const RiskMap = () => {
                 <div className="w-full h-96 lg:h-[500px] bg-gray-200 flex items-center justify-center">
                   <div className="text-center">
                     <AlertTriangle className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                    <p className="text-gray-500">Map will appear after setting Mapbox token</p>
+                    <p className="text-gray-500">O mapa aparecerá após definir o token do Mapbox</p>
                   </div>
                 </div>
               )}
@@ -201,16 +201,16 @@ const RiskMap = () => {
           {/* Legend and Info */}
           <div className="space-y-6">
             <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-lg font-semibold mb-4">Risk Legend</h3>
+              <h3 className="text-lg font-semibold mb-4">Legenda de Riscos</h3>
               <div className="space-y-3">
                 <div className="flex items-center">
                   <div className="w-4 h-4 bg-blue-500 bg-opacity-60 rounded mr-3"></div>
                   <div>
                     <div className="flex items-center">
                       <Droplets className="h-4 w-4 text-blue-500 mr-2" />
-                      <span className="font-medium">Flood Risk</span>
+                      <span className="font-medium">Risco de Enchente</span>
                     </div>
-                    <p className="text-sm text-gray-600">Areas prone to flooding</p>
+                    <p className="text-sm text-gray-600">Áreas propensas a enchentes</p>
                   </div>
                 </div>
                 <div className="flex items-center">
@@ -218,33 +218,33 @@ const RiskMap = () => {
                   <div>
                     <div className="flex items-center">
                       <Mountain className="h-4 w-4 text-amber-500 mr-2" />
-                      <span className="font-medium">Landslide Risk</span>
+                      <span className="font-medium">Risco de Deslizamento</span>
                     </div>
-                    <p className="text-sm text-gray-600">Areas prone to landslides</p>
+                    <p className="text-sm text-gray-600">Áreas propensas a deslizamentos</p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-lg font-semibold mb-4">Current Weather Alert</h3>
+              <h3 className="text-lg font-semibold mb-4">Alerta Meteorológico Atual</h3>
               <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                 <div className="flex items-start">
                   <AlertTriangle className="h-5 w-5 text-yellow-600 mr-3 mt-0.5" />
                   <div>
-                    <p className="font-medium text-yellow-800">Moderate Risk</p>
-                    <p className="text-sm text-yellow-700">Heavy rainfall expected in the next 24 hours. Monitor flood-prone areas.</p>
+                    <p className="font-medium text-yellow-800">Risco Moderado</p>
+                    <p className="text-sm text-yellow-700">Chuva forte esperada nas próximas 24 horas. Monitore áreas propensas a enchentes.</p>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="bg-white rounded-lg shadow-lg p-6">
-              <h3 className="text-lg font-semibold mb-4">Emergency Contacts</h3>
+              <h3 className="text-lg font-semibold mb-4">Contatos de Emergência</h3>
               <div className="space-y-2 text-sm">
-                <p><strong>Emergency:</strong> 911</p>
-                <p><strong>Local Emergency:</strong> (555) 123-4567</p>
-                <p><strong>Flood Hotline:</strong> (555) 123-FLOOD</p>
+                <p><strong>Emergência:</strong> 190</p>
+                <p><strong>Emergência Local:</strong> (11) 123-4567</p>
+                <p><strong>Linha Direta Enchentes:</strong> (11) 123-ENCHENTE</p>
               </div>
             </div>
           </div>

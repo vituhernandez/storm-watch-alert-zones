@@ -35,10 +35,10 @@ const Contact = () => {
     <section id="contact-section" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Entre em Contato</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Have questions about our risk mapping system or need emergency assistance? 
-            Contact our team or sign up for real-time alerts.
+            Tem dúvidas sobre nosso sistema de mapeamento de riscos ou precisa de assistência de emergência? 
+            Entre em contato com nossa equipe ou inscreva-se para receber alertas em tempo real.
           </p>
         </div>
 
@@ -46,16 +46,16 @@ const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Contact Information</h3>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Informações de Contato</h3>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                     <Phone className="h-6 w-6 text-blue-600" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Emergency Hotline</h4>
-                    <p className="text-gray-600">24/7 Emergency Response</p>
-                    <p className="text-blue-600 font-medium">(555) 911-SAFE</p>
+                    <h4 className="font-semibold text-gray-900">Linha Direta de Emergência</h4>
+                    <p className="text-gray-600">Resposta de Emergência 24/7</p>
+                    <p className="text-blue-600 font-medium">(11) 190-SEGURO</p>
                   </div>
                 </div>
 
@@ -64,9 +64,9 @@ const Contact = () => {
                     <Mail className="h-6 w-6 text-green-600" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Email Support</h4>
-                    <p className="text-gray-600">General inquiries and support</p>
-                    <p className="text-green-600 font-medium">support@safezone-alert.com</p>
+                    <h4 className="font-semibold text-gray-900">Suporte por Email</h4>
+                    <p className="text-gray-600">Consultas gerais e suporte</p>
+                    <p className="text-green-600 font-medium">suporte@alerta-safezone.com</p>
                   </div>
                 </div>
 
@@ -75,8 +75,8 @@ const Contact = () => {
                     <MapPin className="h-6 w-6 text-red-600" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Emergency Operations Center</h4>
-                    <p className="text-gray-600">123 Safety Boulevard<br />Disaster City, DC 12345</p>
+                    <h4 className="font-semibold text-gray-900">Centro de Operações de Emergência</h4>
+                    <p className="text-gray-600">Rua da Segurança, 123<br />São Paulo, SP 01234-567</p>
                   </div>
                 </div>
               </div>
@@ -87,29 +87,29 @@ const Contact = () => {
               <CardHeader>
                 <CardTitle className="flex items-center">
                   <CheckCircle className="h-5 w-5 text-blue-600 mr-2" />
-                  Emergency Alert Subscription
+                  Inscrição para Alertas de Emergência
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-gray-600 mb-4">
-                  Get instant notifications about flood and landslide risks in your area.
+                  Receba notificações instantâneas sobre riscos de enchentes e deslizamentos em sua área.
                 </p>
                 <div className="space-y-3">
                   <div className="flex items-center text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Real-time risk alerts
+                    Alertas de risco em tempo real
                   </div>
                   <div className="flex items-center text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Weather warnings
+                    Avisos meteorológicos
                   </div>
                   <div className="flex items-center text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Evacuation notifications
+                    Notificações de evacuação
                   </div>
                   <div className="flex items-center text-sm text-gray-600">
                     <CheckCircle className="h-4 w-4 text-green-500 mr-2" />
-                    Safety updates
+                    Atualizações de segurança
                   </div>
                 </div>
               </CardContent>
@@ -120,21 +120,21 @@ const Contact = () => {
           <div>
             <Card>
               <CardHeader>
-                <CardTitle>Send us a Message</CardTitle>
+                <CardTitle>Envie-nos uma Mensagem</CardTitle>
               </CardHeader>
               <CardContent>
                 {isSubmitted ? (
                   <div className="text-center py-8">
                     <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Message Sent!</h3>
-                    <p className="text-gray-600">We'll get back to you as soon as possible.</p>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Mensagem Enviada!</h3>
+                    <p className="text-gray-600">Entraremos em contato o mais breve possível.</p>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid md:grid-cols-2 gap-4">
                       <div>
                         <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                          Full Name
+                          Nome Completo
                         </label>
                         <Input
                           id="name"
@@ -143,12 +143,12 @@ const Contact = () => {
                           value={formData.name}
                           onChange={handleInputChange}
                           required
-                          placeholder="Your full name"
+                          placeholder="Seu nome completo"
                         />
                       </div>
                       <div>
                         <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                          Email Address
+                          Endereço de Email
                         </label>
                         <Input
                           id="email"
@@ -157,14 +157,14 @@ const Contact = () => {
                           value={formData.email}
                           onChange={handleInputChange}
                           required
-                          placeholder="your.email@example.com"
+                          placeholder="seu.email@exemplo.com"
                         />
                       </div>
                     </div>
 
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                        Phone Number
+                        Número de Telefone
                       </label>
                       <Input
                         id="phone"
@@ -172,13 +172,13 @@ const Contact = () => {
                         type="tel"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        placeholder="(555) 123-4567"
+                        placeholder="(11) 91234-5678"
                       />
                     </div>
 
                     <div>
                       <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                        Message
+                        Mensagem
                       </label>
                       <Textarea
                         id="message"
@@ -187,13 +187,13 @@ const Contact = () => {
                         onChange={handleInputChange}
                         required
                         rows={4}
-                        placeholder="Tell us about your inquiry or how we can help..."
+                        placeholder="Conte-nos sobre sua consulta ou como podemos ajudar..."
                       />
                     </div>
 
                     <Button type="submit" className="w-full" size="lg">
                       <Send className="h-4 w-4 mr-2" />
-                      Send Message
+                      Enviar Mensagem
                     </Button>
                   </form>
                 )}
