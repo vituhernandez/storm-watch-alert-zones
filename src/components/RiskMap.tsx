@@ -1,22 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { AlertTriangle, Droplets, Mountain } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 
 const RiskMap = () => {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<mapboxgl.Map | null>(null);
-  const [mapboxToken, setMapboxToken] = useState('');
-  const [isTokenSet, setIsTokenSet] = useState(false);
-
-  const handleTokenSubmit = () => {
-    if (mapboxToken.trim()) {
-      setIsTokenSet(true);
-      initializeMap();
-    }
-  };
+  const mapboxToken = 'pk.eyJ1Ijoidml0dWhlcm5hbmRleiIsImEiOiJjbWJpdjJ2ZGkwYTU4Mmxwa2RqeGk4MTllIn0.2MWLm9B3jd6sDIvkl3AhZw';
 
   const initializeMap = () => {
     if (!mapContainer.current || !mapboxToken) return;
@@ -142,6 +132,7 @@ const RiskMap = () => {
   };
 
   useEffect(() => {
+    initializeMap();
     return () => {
       map.current?.remove();
     };
@@ -158,26 +149,6 @@ const RiskMap = () => {
           </p>
         </div>
 
-        {!isTokenSet ? (
-          <div className="max-w-md mx-auto mb-8 p-6 bg-white rounded-lg shadow-lg">
-            <h3 className="text-lg font-semibold mb-4">Inserir Token do Mapbox</h3>
-            <p className="text-sm text-gray-600 mb-4">
-              Para exibir o mapa interativo, insira seu token público do Mapbox. 
-              Você pode obter um em <a href="https://mapbox.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">mapbox.com</a>
-            </p>
-            <div className="flex gap-2">
-              <Input
-                type="text"
-                placeholder="Insira seu token do Mapbox"
-                value={mapboxToken}
-                onChange={(e) => setMapboxToken(e.target.value)}
-                className="flex-1"
-              />
-              <Button onClick={handleTokenSubmit}>Definir Token</Button>
-            </div>
-          </div>
-        ) : null}
-
         <div className="grid lg:grid-cols-4 gap-8">
           {/* Map */}
           <div className="lg:col-span-3">
@@ -185,16 +156,7 @@ const RiskMap = () => {
               <div 
                 ref={mapContainer} 
                 className="w-full h-96 lg:h-[500px]"
-                style={{ display: isTokenSet ? 'block' : 'none' }}
               />
-              {!isTokenSet && (
-                <div className="w-full h-96 lg:h-[500px] bg-gray-200 flex items-center justify-center">
-                  <div className="text-center">
-                    <AlertTriangle className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                    <p className="text-gray-500">O mapa aparecerá após definir o token do Mapbox</p>
-                  </div>
-                </div>
-              )}
             </div>
           </div>
 
