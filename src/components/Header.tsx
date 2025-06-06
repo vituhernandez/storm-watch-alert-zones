@@ -14,7 +14,7 @@ const Header = () => {
             <Shield className="h-8 w-8 text-white" />
             <span className="text-xl font-bold text-white">Alerta SafeZone</span>
           </Link>
-          <div className="hidden md:flex space-x-6">
+          <div className="flex space-x-6">
             <Link 
               to="/" 
               className={`transition-colors ${isActive('/') ? 'text-yellow-400' : 'text-white hover:text-blue-200'}`}
